@@ -7,16 +7,24 @@ if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
     exit;
 }
 
-$pdo = new PDO('sqlite:log_app.sqlite');
+$dsn = "pgsql:host=dpg-cvv0bgqdbo4c73famae0-a;port=5432;dbname=study_rf18";
+$user = "study_rf18_user";
+$password = "VOBl51BTGwEXCzLu7bxD9ZVeNGR4yC3A";
+
+$pdo = new PDO($dsn, $user, $password, [
+    PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
+]);
+
 
 // 初回のみ：テーブルがなければ作成
 $pdo->exec("
     CREATE TABLE IF NOT EXISTS memos (
-        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        id SERIAL PRIMARY KEY,
         content TEXT NOT NULL,
-        created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
     )
 ");
+
 
 // 削除リクエストが来ていたら処理
 if (isset($_GET['delete'])) {
