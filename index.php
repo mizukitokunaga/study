@@ -198,11 +198,11 @@ $memos = $stmt->fetchAll(PDO::FETCH_ASSOC);
       <?php endif; ?>
     </div>
   </div>
-  <footer class="footer">
+  <!--<footer class="footer">
   <div class="container">
     <p>&copy; <?= date('Y') ?> たも日報. All rights reserved.</p>
   </div>
-</footer>
+</footer>-->
 <div class="paw-tile">
   <?php for ($i = 0; $i < 100; $i++): ?>
     <i class="fa-solid fa-paw"></i>
