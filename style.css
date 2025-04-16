@@ -348,6 +348,48 @@ h2{
     color: #666;
   }
   
+  /* スマホサイズ調整 */
+@media (max-width: 768px) {
+    body {
+      font-size: 16px;
+    }
+  
+    .form-card {
+      margin: 10px;
+      padding: 20px;
+    }
+  
+    .search {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+  
+    .search input,
+    .search button {
+      width: 100%;
+    }
+  
+    textarea,
+    input[type="text"],
+    input[type="month"] {
+      width: 100%;
+      max-width: 100%;
+    }
+  
+    .edit-save,
+    .edit-cancel {
+      display: inline-block;
+      width: 100%;
+      margin-top: 5px;
+    }
+  
+    table.card {
+      font-size: 14px;
+      word-break: break-word;
+    }
+  }
+  
       
   
       
